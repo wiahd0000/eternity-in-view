@@ -387,24 +387,27 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
             <motion.div 
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               className="lg:flex-1 relative"
             >
-              <div className="aspect-[4/5] rounded-[40px] overflow-hidden shadow-2xl relative">
+              <div className="aspect-[4/5] rounded-[40px] shadow-2xl relative group cursor-pointer overflow-hidden border-4 border-white transition-all duration-500">
                 <img 
-                  src="https://images.unsplash.com/photo-1507005311169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=1000" // Professional portrait placeholder
+                  src="https://res.cloudinary.com/diblckeu1/image/upload/v1777946474/sm_b4ueqa.jpg" 
                   alt="Samuel Gideon"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-red-950/80 via-transparent to-transparent" />
-                <div className="absolute bottom-8 left-8 right-8 text-white">
-                  <h4 className="text-2xl font-bold mb-1 italic">Samuel Gideon</h4>
-                  <p className="opacity-80">CEO, Eternity In View Academy</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-red-950/90 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute bottom-8 left-8 right-8 text-white transform transition-transform duration-500 group-hover:translate-y-[-5px]">
+                  <div className="bg-red-800/80 backdrop-blur-sm px-4 py-2 rounded-xl inline-block mb-3">
+                    <h4 className="text-xl font-bold italic tracking-tight">Samuel Gideon</h4>
+                  </div>
+                  <p className="text-sm font-bold uppercase tracking-[0.2em] opacity-80 pl-1">Founder & CEO</p>
                 </div>
               </div>
-              <div className="absolute -bottom-6 -right-6 lg:-right-12 w-48 h-48 bg-white p-6 rounded-3xl shadow-xl border border-slate-100 hidden sm:block">
+              
+              <div className="absolute -bottom-6 -right-6 lg:-right-12 w-48 h-48 bg-white p-6 rounded-3xl shadow-xl border border-slate-100 hidden sm:block z-20 group">
                 <div className="flex flex-col h-full justify-between">
                   <div className="flex gap-1 text-amber-500">
                     {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 fill-current" />)}
